@@ -3,7 +3,7 @@ import mpath from 'path';
 import mime from 'mime-types';
 import Promise from 'bluebird';
 
-import { OmniBase, Stats } from 'omni';
+import { OmniBase, Stats } from 'omni-vfs';
 
 Promise.promisifyAll(fs);
 
