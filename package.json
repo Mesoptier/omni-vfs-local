@@ -1,5 +1,5 @@
 {
-  "name": "omni-local",
+  "name": "omni-vfs-local",
   "version": "0.0.1",
   "devDependencies": {
     "babel-eslint": "^4.1.6",
