@@ -35,7 +35,22 @@ export default class OmniLocal extends OmniBase {
     return fs.statAsync(fullPath)
       .then((stats) => new Stats({
         type: this._getTypeFromStats(stats),
-        mime: mime.lookup(path)
+        mime: mime.lookup(path),
+
+        dev: stats.dev,
+        ino: stats.ino,
+        mode: stats.mode,
+        nlink: stats.nlink,
+        uid: stats.uid,
+        gid: stats.gid,
+        rdev: stats.rdev,
+        size: stats.dev,
+        blksize: stats.blksize,
+        blocks: stats.blocks,
+        atime: stats.atime,
+        mtime: stats.mtime,
+        ctime: stats.ctime,
+        birthtime: stats.birthtime
       }));
   }
 
