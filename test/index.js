@@ -12,9 +12,28 @@ omniBaseTest({
   },
 
   mock: {
-    install(data) {
+    install(tree) {
+      tree.map((path, name, node) => {
+        switch (node.type) {
+          case 'file':
+            return mockFs.file(Object.assign({
+              content: node.content,
+            }, node.stats));
+
+          case 'directory':
+            return mockFs.directory(Object.assign({
+              items: node.items
+            }, node.stats));
+
+          case 'symlink':
+            return mockFs.symlink(Object.assign({
+              path: node.path
+            }, node.stats));
+        }
+      });
+
       mockFs({
-        'mock-root': data
+        'mock-root': tree.structure
       });
     },
 
