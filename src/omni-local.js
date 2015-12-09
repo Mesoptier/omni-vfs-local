@@ -1,6 +1,5 @@
 import fs from 'fs';
 import mpath from 'path';
-import mime from 'mime-types';
 import Promise from 'bluebird';
 
 import { OmniBase, Stats } from 'omni-vfs';
@@ -35,7 +34,7 @@ export default class OmniLocal extends OmniBase {
     return fs.statAsync(fullPath)
       .then((stats) => new Stats({
         type: this._getTypeFromStats(stats),
-        mime: mime.lookup(path),
+        mime: Stats.lookupMimeType(path),
 
         dev: stats.dev,
         ino: stats.ino,
