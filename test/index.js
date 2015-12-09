@@ -33,7 +33,7 @@ omniBaseTest({
       });
 
       mockFs({
-        'mock-root': tree.structure
+        'mock-root': tree.tree.items
       });
     },
 
