@@ -3,9 +3,11 @@
   "description": "Local file system implementation for omni-vfs.",
   "version": "0.0.1",
   "scripts": {
-    "test": "mocha test --compilers js:babel-register"
+    "test": "mocha test --compilers js:babel-register",
+    "compile": "babel src -d lib",
+    "prepublish": "npm run compile"
   },
-  "main": "src/omni-local.js",
+  "main": "lib/omni-local.js",
   "dependencies": {
     "bluebird": "^3.0.6",
     "omni-vfs": "0.0.2"
